@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A11417292B0B84730093DB39 /* LengthConversionViewSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11417282B0B84730093DB39 /* LengthConversionViewSolution.swift */; };
 		A15A55392B03B211001E6D86 /* practiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15A55382B03B211001E6D86 /* practiceView.swift */; };
 		A1A32E352B023CAE00696A69 /* weSplitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A32E342B023CAE00696A69 /* weSplitApp.swift */; };
 		A1A32E372B023CAE00696A69 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A32E362B023CAE00696A69 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A11417282B0B84730093DB39 /* LengthConversionViewSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthConversionViewSolution.swift; sourceTree = "<group>"; };
 		A15A55382B03B211001E6D86 /* practiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceView.swift; sourceTree = "<group>"; };
 		A1A32E312B023CAE00696A69 /* weSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A32E342B023CAE00696A69 /* weSplitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weSplitApp.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				A1A32E362B023CAE00696A69 /* ContentView.swift */,
 				A1D398572B07EBD60053F807 /* LengthConvesionView.swift */,
 				A15A55382B03B211001E6D86 /* practiceView.swift */,
+				A11417282B0B84730093DB39 /* LengthConversionViewSolution.swift */,
 				A1A32E382B023CB000696A69 /* Assets.xcassets */,
 				A1A32E3A2B023CB000696A69 /* Preview Content */,
 			);
@@ -265,6 +268,7 @@
 			files = (
 				A1A32E372B023CAE00696A69 /* ContentView.swift in Sources */,
 				A1D398582B07EBD60053F807 /* LengthConvesionView.swift in Sources */,
+				A11417292B0B84730093DB39 /* LengthConversionViewSolution.swift in Sources */,
 				A15A55392B03B211001E6D86 /* practiceView.swift in Sources */,
 				A1A32E352B023CAE00696A69 /* weSplitApp.swift in Sources */,
 			);
