@@ -11,6 +11,7 @@ struct ContentView: View {
     func executeDelete(){
         print("deleting,,,")
     }
+    @State private var showAlert:Bool = false
     var body: some View {
         
         TabView {
@@ -95,6 +96,23 @@ struct ContentView: View {
                     Image(systemName: "3.circle")
                     Text("Button and Image")
                 }
+            
+            Button("showalert"){
+                showAlert = true
+            }.alert("Important message", isPresented: $showAlert) {
+                Button("OK") { }
+                Button("Delete", role: .destructive) { }
+                Button("cancel", role:.cancel){ }
+                
+            }message: {
+                Text("Please read this.")
+            }
+            
+            
+            .tabItem {
+                Image(systemName: "4.circle")
+                Text("alert")
+            }
                 }
     }
 }
