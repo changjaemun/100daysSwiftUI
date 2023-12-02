@@ -7,28 +7,41 @@ struct GuessTheFlagView: View {
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
-    // 0, 1, 2
-    
     @State private var showingScore = false
+    @State private var showingTotalScore = false
     @State private var scoreTitle = ""
     @State private var score = 0
+    @State private var index = 1
+    @State var judgedScore:[String] = []
     
     func flagTapped(_ number: Int) {
+    
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
+            judgedScore.append("O")
         } else {
             scoreTitle = "Wrong\n That's flag of \(countries[number])"
+            judgedScore.append("X")
         }
-
-        showingScore = true
+            showingScore = true
     }
     
     func askQuestion(){
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        index += 1
     }
     
+    func reset(){
+        index = 1
+        score = 0
+        countries.shuffle()
+    }
+    
+    func showTotalScore(){
+        showingTotalScore = true
+    }
     
     var body: some View {
         ZStack{
@@ -43,10 +56,13 @@ struct GuessTheFlagView: View {
                     .font(.largeTitle.bold())
                     .foregroundStyle(.white)
                 Spacer()
+                Text("\(index)/8")
+                    .foregroundStyle(.white)
+                    .font(.title.bold())
                 Text("Score: \(score)")
                     .foregroundStyle(.white)
                     .font(.title.bold())
-                Spacer()
+                //Spacer()
                 VStack(spacing: 15) {
                     VStack {
                             Text("Tap the flag of")
@@ -63,7 +79,7 @@ struct GuessTheFlagView: View {
                                flagTapped(number)
                             } label: {
                                 Image(countries[number])
-                                    .cornerRadius(5)
+                                    .clipShape(Capsule())
                                     .shadow(radius: 5)
                             }
                     }
@@ -75,17 +91,35 @@ struct GuessTheFlagView: View {
             
             
         }.alert(scoreTitle, isPresented: $showingScore){
-            Button("Continue", action: askQuestion)
+            if index == 8{
+                Button("Restart Game", action: reset)
+                Button("Show Total Score", action: showTotalScore)
+            }else{
+                Button("Continue", action: askQuestion)
+            }
         }message: {
-            Text("Your score is \(score)")
+                Text("Your score is \(score)/8")
         }
-        
-        
+        .sheet(isPresented: $showingTotalScore) {
+            VStack{
+                ForEach(0..<8){ index in
+                    Text("\(index+1). \(judgedScore[index])")
+                }
+                Button("Restart Game"){
+                    reset()
+                    showingTotalScore = false
+                }
+            }
+        }
     }
 }
+
+
 
 struct GuessTheFlagView_Previews: PreviewProvider {
     static var previews: some View {
         GuessTheFlagView()
     }
 }
+
+
