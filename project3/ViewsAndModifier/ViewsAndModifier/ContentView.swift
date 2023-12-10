@@ -16,6 +16,9 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        
+        .background(.red)
+        .frame(width:200, height: 200)
     }
 }
 
