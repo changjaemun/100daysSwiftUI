@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A126840A2B46BD81007CAC98 /* CustomContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12684092B46BD81007CAC98 /* CustomContainer.swift */; };
 		A18F64D52B1E20C500D54877 /* ViewsAndModifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18F64D42B1E20C500D54877 /* ViewsAndModifierApp.swift */; };
 		A18F64D72B1E20C500D54877 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18F64D62B1E20C500D54877 /* ContentView.swift */; };
 		A18F64D92B1E20C800D54877 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A18F64D82B1E20C800D54877 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A12684092B46BD81007CAC98 /* CustomContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomContainer.swift; sourceTree = "<group>"; };
 		A18F64D12B1E20C500D54877 /* ViewsAndModifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewsAndModifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A18F64D42B1E20C500D54877 /* ViewsAndModifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsAndModifierApp.swift; sourceTree = "<group>"; };
 		A18F64D62B1E20C500D54877 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				A18F64D42B1E20C500D54877 /* ViewsAndModifierApp.swift */,
 				A18F64D62B1E20C500D54877 /* ContentView.swift */,
+				A12684092B46BD81007CAC98 /* CustomContainer.swift */,
 				A18F64D82B1E20C800D54877 /* Assets.xcassets */,
 				A18F64DA2B1E20C800D54877 /* Preview Content */,
 			);
@@ -258,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A18F64D72B1E20C500D54877 /* ContentView.swift in Sources */,
+				A126840A2B46BD81007CAC98 /* CustomContainer.swift in Sources */,
 				A18F64D52B1E20C500D54877 /* ViewsAndModifierApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
