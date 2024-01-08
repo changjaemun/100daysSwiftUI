@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack{
+            Text("파란색 제목")
+                .modifier(BlueText())
             VStack(spacing: 10) {
                 Text("First")
                     .font(.largeTitle)
@@ -57,6 +59,17 @@ struct CapsuleText: View {
             .foregroundStyle(.white)
             .background(.blue)
             .clipShape(.capsule)
+    }
+}
+
+struct BlueText:ViewModifier{
+    func body(content: Content) -> some View {
+        content.foregroundColor(.blue)
+    }// ViewModifier타입은 무조건 body 메소드를 만족해야하나보다.. 프로토콜인듯
+}
+extension View{//View 구조체에 익스텐션
+    func makeBlueText() -> some View{
+        modifier(BlueText())
     }
 }
 

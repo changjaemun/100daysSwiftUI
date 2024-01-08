@@ -78,9 +78,10 @@ struct GuessTheFlagView: View {
                             Button {
                                flagTapped(number)
                             } label: {
-                                Image(countries[number])
-                                    .clipShape(Capsule())
-                                    .shadow(radius: 5)
+                                FlagImage(countries: countries[number])
+//                                Image(countries[number])
+//                                    .clipShape(Capsule())
+//                                    .shadow(radius: 5)
                             }
                     }
                     
@@ -114,7 +115,15 @@ struct GuessTheFlagView: View {
     }
 }
 
-
+struct FlagImage: View{
+    let countries: String
+    
+    var body: some View{
+        Image(countries)
+            .clipShape(Capsule())
+            .shadow(radius: 5)
+    }
+}
 
 struct GuessTheFlagView_Previews: PreviewProvider {
     static var previews: some View {
