@@ -1,0 +1,10 @@
+
+project4 배운 것 정리
+
+1.Stepper
+- Stepper(value: $sleepAmount, in: 4...12, step: 0.25) {
+            Text("\(sleepAmount.formatted()) hours")
+        }
+in으로 스텝퍼의 범위를 설정할 수 있고, step으로 얼마나 올리고 내릴지 정할 수 있음
+
+2
