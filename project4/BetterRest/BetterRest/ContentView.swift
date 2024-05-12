@@ -17,6 +17,10 @@ struct ContentView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var showingAlert = false
+    private var sleepTime:Double{
+        let config = MLModelConfiguration()
+        return 1.2 // 계산값
+    }
     
     static var defaultWakeTime: Date {
         var components = DateComponents()
@@ -50,35 +54,31 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             Form{
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("When do you want to wake up?")
-                        .font(.headline)
-
+                Section(header: Text("When do you want to wake up?").foregroundStyle(Color.black)){
                     DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
                                 .labelsHidden()
                 }
                 
-                
-                VStack(alignment: .leading, spacing: 0)  {
-                    Text("Desired amount of sleep")
-                        .font(.headline)
+                Section(header: Text("Desired amount of sleep").foregroundStyle(Color.black)){
                     Stepper(value: $sleepAmount, in: 4...12, step: 0.25) {
                         Text("\(sleepAmount.formatted()) hours")
                     }
                 }
-                
-                
-                
-                VStack(alignment: .leading, spacing: 0)  {
-                    Text("Daily coffee intake")
-                        .font(.headline)
-                    Stepper("\(coffeeAmount) cup(s)", value: $coffeeAmount, in: 1...20)
+                  
+                Section(header: Text("Daily coffee intake").foregroundStyle(Color.black)){
                     Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 1...20)//SwiftUI제공하는 복수화 코드 ㄷㄷ 신기
-
+                    Picker(selection: $coffeeAmount, label: Text("^[\(coffeeAmount) cup](inflect: true)")) {
+                        ForEach(1..<22){n in
+                            Text("\(n - 1)")
+                        }
+                        
+                    }
                 }
-
                 
-                
+                Section(header: Text("Sleep at this time")) {
+                    Text("10시")
+                }
+    
             }.navigationTitle("BetterRest")
                 .toolbar {
                     Button("Calculate", action: calculateBedtime)
