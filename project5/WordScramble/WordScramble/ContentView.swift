@@ -11,10 +11,34 @@ struct ContentView: View {
     @State private var usedWords = [String]()
     @State private var rootWord = ""
     @State private var newWord = ""
+    @State private var errorTitle = ""
+    @State private var errorMessage = ""
+    @State private var showingError = false
+    
     func addNewWord(){
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
         
         guard answer.count > 0 else{
+            return
+        }
+        
+        guard isOriginal(word: answer) else {
+            wordError(title: "Word used already", message: "Be more original")
+            return
+        }
+
+        guard isPossible(word: answer) else {
+            wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
+            return
+        }
+
+        guard isReal(word: answer) else {
+            wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
+            return
+        }
+        
+        guard isShort(word: answer) else {
+            wordError(title: "Word is too short!", message: "You must to write word over 3 letters")
             return
         }
         withAnimation {
@@ -61,12 +85,68 @@ struct ContentView: View {
                     }
                 }
             }.navigationTitle(rootWord)
+                .toolbar(content: {
+                    Button("Restart"){
+                        startGame()
+                    }
+                })
                 .onSubmit(addNewWord)
                 .onAppear(perform: startGame)
+                .alert(errorTitle, isPresented: $showingError){
+                    Button("OK"){
+                        
+                    }
+                }message: {
+                    Text(errorMessage)
+                }
         }
     }
 }
 
 #Preview {
     ContentView()
+}
+
+extension ContentView{
+    func isOriginal(word: String) -> Bool {
+        !usedWords.contains(word)
+    }
+    
+    func isPossible(word: String) -> Bool {
+        var tempWord = rootWord // 예: cartman
+
+        for letter in word { // word = tan
+            if let pos = tempWord.firstIndex(of: letter) {
+                tempWord.remove(at: pos)
+            } else {
+            //word에서 rootword에 포함안된 스펠링이 하나라도 있으면 바로 false리턴
+                return false
+            }
+        }
+
+        return true
+    }
+    
+    func isReal(word: String) -> Bool {
+        let checker = UITextChecker()
+        let range = NSRange(location: 0, length: word.utf16.count)
+        //단어 검사 시작점, 단어 음절 수(utf16)
+        let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
+
+        return misspelledRange.location == NSNotFound
+    }
+    
+    func isShort(word:String) -> Bool{
+        if word.count < 2{
+            return false
+        }
+        return true
+    }
+    
+    func wordError(title: String, message: String) {
+        errorTitle = title
+        errorMessage = message
+        showingError = true
+    }
+    
 }
