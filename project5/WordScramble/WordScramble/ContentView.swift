@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
+    @State private var totalScore = 0
     
     func addNewWord(){
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
@@ -43,6 +44,7 @@ struct ContentView: View {
         }
         withAnimation {
             usedWords.insert(answer, at: 0)
+            score(word: answer)
         }
         
         newWord = ""
@@ -65,6 +67,7 @@ struct ContentView: View {
 
         // If were are *here* then there was a problem – trigger a crash and report the error
         fatalError("Could not load start.txt from bundle.")
+        
     }
     
     var body: some View {
@@ -86,8 +89,12 @@ struct ContentView: View {
                 }
             }.navigationTitle(rootWord)
                 .toolbar(content: {
+                    Text("\(totalScore)")
+                })
+                .toolbar(content: {
                     Button("Restart"){
                         startGame()
+                        totalScore = 0
                     }
                 })
                 .onSubmit(addNewWord)
@@ -147,6 +154,10 @@ extension ContentView{
         errorTitle = title
         errorMessage = message
         showingError = true
+    }
+    
+    func score(word:String){
+        totalScore += word.count + 1
     }
     
 }
