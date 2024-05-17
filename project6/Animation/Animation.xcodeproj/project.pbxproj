@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A17F9A682BF72EB300B7C22D /* ControllAnimationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F9A672BF72EB300B7C22D /* ControllAnimationStack.swift */; };
+		A17F9A6A2BF733CE00B7C22D /* Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F9A692BF733CE00B7C22D /* Gesture.swift */; };
+		A17F9A6C2BF7397E00B7C22D /* HidingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F9A6B2BF7397E00B7C22D /* HidingView.swift */; };
+		A17F9A6E2BF73D5600B7C22D /* CustomAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17F9A6D2BF73D5600B7C22D /* CustomAnimation.swift */; };
 		A1A0A7A92BF64E5C006E3CB3 /* AnimationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0A7A82BF64E5C006E3CB3 /* AnimationApp.swift */; };
 		A1A0A7AB2BF64E5C006E3CB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A0A7AA2BF64E5C006E3CB3 /* ContentView.swift */; };
 		A1A0A7AD2BF64E5D006E3CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1A0A7AC2BF64E5D006E3CB3 /* Assets.xcassets */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A17F9A672BF72EB300B7C22D /* ControllAnimationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllAnimationStack.swift; sourceTree = "<group>"; };
+		A17F9A692BF733CE00B7C22D /* Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gesture.swift; sourceTree = "<group>"; };
+		A17F9A6B2BF7397E00B7C22D /* HidingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HidingView.swift; sourceTree = "<group>"; };
+		A17F9A6D2BF73D5600B7C22D /* CustomAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimation.swift; sourceTree = "<group>"; };
 		A1A0A7A52BF64E5C006E3CB3 /* Animation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A0A7A82BF64E5C006E3CB3 /* AnimationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationApp.swift; sourceTree = "<group>"; };
 		A1A0A7AA2BF64E5C006E3CB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,8 +61,12 @@
 		A1A0A7A72BF64E5C006E3CB3 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
+				A17F9A672BF72EB300B7C22D /* ControllAnimationStack.swift */,
 				A1A0A7A82BF64E5C006E3CB3 /* AnimationApp.swift */,
+				A17F9A692BF733CE00B7C22D /* Gesture.swift */,
 				A1A0A7AA2BF64E5C006E3CB3 /* ContentView.swift */,
+				A17F9A6B2BF7397E00B7C22D /* HidingView.swift */,
+				A17F9A6D2BF73D5600B7C22D /* CustomAnimation.swift */,
 				A1A0A7B62BF66E35006E3CB3 /* AnimationBindings.swift */,
 				A1A0A7AC2BF64E5D006E3CB3 /* Assets.xcassets */,
 				A1A0A7AE2BF64E5D006E3CB3 /* Preview Content */,
@@ -142,6 +154,10 @@
 			files = (
 				A1A0A7AB2BF64E5C006E3CB3 /* ContentView.swift in Sources */,
 				A1A0A7B72BF66E35006E3CB3 /* AnimationBindings.swift in Sources */,
+				A17F9A6A2BF733CE00B7C22D /* Gesture.swift in Sources */,
+				A17F9A6C2BF7397E00B7C22D /* HidingView.swift in Sources */,
+				A17F9A682BF72EB300B7C22D /* ControllAnimationStack.swift in Sources */,
+				A17F9A6E2BF73D5600B7C22D /* CustomAnimation.swift in Sources */,
 				A1A0A7A92BF64E5C006E3CB3 /* AnimationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
